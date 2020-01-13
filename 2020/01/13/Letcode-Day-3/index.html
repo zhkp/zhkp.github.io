@@ -106,22 +106,31 @@ function activateLightMode(){
 <li><p>初始化最长上升子序列的长度result为1，recode[0] = nums[0]；</p>
 </li>
 <li><p><code>for i from 1 to nums.size - 1</code></p>
+<ul>
+<li><p><code>if nums[i] > recode[result - 1]</code></p>
+<ul>
+<li><code>recode[result++] = nums[i]</code></li>
+</ul>
 </li>
-<li><p>​            <code>if nums[i] > recode[result - 1]</code></p>
+<li><p><code>else</code></p>
+<ul>
+<li><p><code>for j from result to 0</code></p>
+<ul>
+<li><p><code>if  recode[j] < nums[i] && recode[j + 1] > nums[i]</code></p>
+<ul>
+<li><code>recode[j + 1] = nums[i]</code></li>
+</ul>
 </li>
-<li><p>​                    <code>recode[result++] = nums[i]</code></p>
+<li><p><code>if (recode[0] > nums[i])</code></p>
+<ul>
+<li><code>recode[0] = nums[i];</code></li>
+</ul>
 </li>
-<li><p>​            <code>else</code></p>
+</ul>
 </li>
-<li><p>​                    <code>for j from result to 0</code></p>
+</ul>
 </li>
-<li><p>​                           <code>if  recode[j] < nums[i] && recode[j + 1] > nums[i]</code></p>
-</li>
-<li><p>​                                   <code>recode[j + 1] = nums[i]</code></p>
-</li>
-<li><p>​                    <code>if (recode[0] > nums[i])</code></p>
-</li>
-<li><p>​                            <code>recode[0] = nums[i];</code></p>
+</ul>
 </li>
 </ul>
 <p><strong>注意：记得判断空数组。</strong></p>
